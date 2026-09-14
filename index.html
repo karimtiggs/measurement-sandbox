@@ -1,0 +1,884 @@
+<!-- FICTIONAL MEASUREMENT SANDBOX - CREATED FOR TRAINING PURPOSES -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northstar Growth Consulting | Build a Growth System That Scales</title>
+<meta name="description" content="Northstar Growth Consulting helps founder-led companies build growth strategy, marketing operations, and revenue systems that scale. (Fictional site for measurement training.)">
+
+<script>
+  // dataLayer initialization — must exist before any tag fires
+  window.dataLayer = window.dataLayer || [];
+</script>
+
+<!--
+  GTM HEAD SNIPPET PLACEHOLDER
+  ------------------------------------------------------------------
+  The Google Tag Manager container snippet (the <script> block that
+  loads gtm.js) will be installed here, immediately after the
+  dataLayer initialization above and as high in <head> as possible.
+  ------------------------------------------------------------------
+-->
+
+<style>
+  :root {
+    --navy-950: #0a0e1a;
+    --navy-900: #0f1424;
+    --navy-800: #141b30;
+    --navy-700: #1c2540;
+    --navy-600: #2a3557;
+    --gold-400: #d4af6a;
+    --gold-300: #e3c485;
+    --gold-500: #b8924f;
+    --ivory-50: #f8f7f4;
+    --ivory-100: #efece5;
+    --slate-500: #5b6478;
+    --slate-600: #444d61;
+    --slate-700: #2e3548;
+    --success-600: #1f8a5f;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --max-width: 1180px;
+    --shadow-soft: 0 10px 30px rgba(10, 14, 26, 0.08);
+    --shadow-strong: 0 20px 50px rgba(10, 14, 26, 0.18);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--slate-700);
+    background: var(--ivory-50);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--navy-950);
+    margin: 0 0 0.5em 0;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-500);
+    margin-bottom: 14px;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+  }
+  .btn:active { transform: translateY(1px); }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+    color: var(--navy-950);
+    box-shadow: 0 8px 20px rgba(184, 146, 79, 0.35);
+  }
+  .btn-primary:hover { box-shadow: 0 10px 26px rgba(184, 146, 79, 0.45); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--ivory-50);
+    border-color: rgba(248, 247, 244, 0.35);
+  }
+  .btn-outline:hover { background: rgba(248, 247, 244, 0.1); border-color: rgba(248, 247, 244, 0.6); }
+
+  .btn-dark-outline {
+    background: transparent;
+    color: var(--navy-950);
+    border-color: var(--navy-700);
+  }
+  .btn-dark-outline:hover { background: var(--navy-950); color: var(--ivory-50); }
+
+  .btn-small {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .btn-block { width: 100%; }
+
+  /* ---------- Nav ---------- */
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 14, 26, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(248, 247, 244, 0.08);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ivory-50);
+    letter-spacing: 0.01em;
+  }
+  .logo .mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy-950);
+    font-size: 16px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .logo .logo-sub {
+    display: block;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-300);
+    margin-top: 1px;
+  }
+
+  nav.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .nav-link {
+    color: rgba(248, 247, 244, 0.82);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .nav-link:hover { color: var(--ivory-50); border-color: var(--gold-400); }
+
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid rgba(248, 247, 244, 0.3);
+    border-radius: 8px;
+    color: var(--ivory-50);
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background:
+      radial-gradient(circle at 15% 20%, rgba(212, 175, 106, 0.15), transparent 45%),
+      radial-gradient(circle at 85% 0%, rgba(212, 175, 106, 0.10), transparent 40%),
+      linear-gradient(180deg, var(--navy-950), var(--navy-900));
+    color: var(--ivory-50);
+    padding: 100px 24px 90px;
+    text-align: center;
+  }
+
+  .hero-inner { max-width: 780px; margin: 0 auto; }
+
+  .hero h1 {
+    color: var(--ivory-50);
+    font-size: clamp(34px, 5.5vw, 58px);
+    line-height: 1.1;
+    margin-bottom: 22px;
+  }
+
+  .hero p.lead {
+    font-size: 18px;
+    color: rgba(248, 247, 244, 0.78);
+    max-width: 600px;
+    margin: 0 auto 38px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 640px;
+    margin: 0 auto;
+    padding-top: 40px;
+    border-top: 1px solid rgba(248, 247, 244, 0.12);
+  }
+  .hero-stats .stat-num {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    color: var(--gold-300);
+    font-weight: 700;
+  }
+  .hero-stats .stat-label {
+    font-size: 12px;
+    color: rgba(248, 247, 244, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+
+  /* ---------- Sections generic ---------- */
+  section { padding: 96px 24px; }
+
+  .section-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+  }
+
+  .section-head h2 { font-size: clamp(26px, 4vw, 38px); }
+  .section-head p { color: var(--slate-500); font-size: 16px; }
+
+  /* ---------- Services ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: #fff;
+    border: 1px solid rgba(20, 27, 48, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 36px 30px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-strong); }
+
+  .service-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--navy-800), var(--navy-950));
+    color: var(--gold-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .service-card h3 { font-size: 20px; margin-bottom: 10px; }
+  .service-card p { color: var(--slate-500); font-size: 15px; margin-bottom: 22px; flex-grow: 1; }
+
+  .service-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    font-size: 14px;
+    color: var(--slate-600);
+  }
+  .service-card ul li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+  }
+  .service-card ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--gold-500);
+    font-weight: 700;
+  }
+
+  /* ---------- Results ---------- */
+  .results-section { background: var(--navy-950); color: var(--ivory-50); }
+  .results-section .section-head h2 { color: var(--ivory-50); }
+  .results-section .section-head p { color: rgba(248, 247, 244, 0.65); }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: var(--max-width);
+    margin: 0 auto 64px;
+  }
+
+  .result-card {
+    background: rgba(248, 247, 244, 0.04);
+    border: 1px solid rgba(248, 247, 244, 0.1);
+    border-radius: var(--radius-md);
+    padding: 30px 20px;
+    text-align: center;
+  }
+  .result-card .num {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--gold-300);
+    margin-bottom: 8px;
+  }
+  .result-card .label {
+    font-size: 13px;
+    color: rgba(248, 247, 244, 0.6);
+  }
+
+  .testimonial {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+    background: rgba(248, 247, 244, 0.03);
+    border: 1px solid rgba(248, 247, 244, 0.08);
+    border-radius: var(--radius-lg);
+  }
+  .testimonial p.quote {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--ivory-50);
+    margin-bottom: 18px;
+  }
+  .testimonial .attribution {
+    font-size: 13px;
+    color: rgba(248, 247, 244, 0.55);
+  }
+  .testimonial .disclaimer {
+    margin-top: 20px;
+    font-size: 11px;
+    color: rgba(248, 247, 244, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ---------- Lead section ---------- */
+  .lead-section { background: var(--ivory-100); }
+
+  .lead-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-strong);
+    padding: 52px;
+    border: 1px solid rgba(20, 27, 48, 0.06);
+  }
+
+  .lead-wrap .section-head { margin-bottom: 36px; }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-field { display: flex; flex-direction: column; gap: 6px; }
+  .form-field.full { grid-column: 1 / -1; }
+
+  .form-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy-800);
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    font-family: inherit;
+    font-size: 15px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(20, 27, 48, 0.16);
+    background: var(--ivory-50);
+    color: var(--slate-700);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: var(--gold-500);
+    box-shadow: 0 0 0 3px rgba(212, 175, 106, 0.2);
+  }
+
+  .form-field textarea { resize: vertical; min-height: 110px; }
+
+  .form-submit-row { margin-top: 28px; }
+
+  .form-note {
+    font-size: 12px;
+    color: var(--slate-500);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  /* Thank-you state */
+  .thank-you {
+    display: none;
+    text-align: center;
+    padding: 30px 10px;
+  }
+  .thank-you .check {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--success-600);
+    color: #fff;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px;
+  }
+  .thank-you h3 { font-size: 24px; margin-bottom: 10px; }
+  .thank-you p { color: var(--slate-500); max-width: 440px; margin: 0 auto; }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer {
+    background: var(--navy-950);
+    color: rgba(248, 247, 244, 0.6);
+    padding: 60px 24px 30px;
+  }
+
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(248, 247, 244, 0.1);
+  }
+
+  .footer-brand .logo { margin-bottom: 14px; }
+  .footer-brand p { font-size: 14px; max-width: 320px; color: rgba(248, 247, 244, 0.5); }
+
+  .footer-col h4 {
+    color: var(--ivory-50);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .footer-col a, .footer-col p {
+    display: block;
+    font-size: 14px;
+    color: rgba(248, 247, 244, 0.6);
+    margin-bottom: 10px;
+    transition: color 0.15s ease;
+  }
+  .footer-col a:hover { color: var(--gold-300); }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 24px auto 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+    color: rgba(248, 247, 244, 0.35);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 720px) {
+    nav.nav-links { display: none; }
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+    .nav-right .btn-primary.nav-cta-desktop { display: none; }
+
+    body.nav-open nav.nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--navy-950);
+      padding: 16px 24px 24px;
+      border-bottom: 1px solid rgba(248, 247, 244, 0.08);
+    }
+    body.nav-open nav.nav-links .nav-link { padding: 10px 0; width: 100%; border-bottom: 1px solid rgba(248,247,244,0.06); }
+    body.nav-open nav.nav-links .btn { margin-top: 10px; }
+
+    .hero { padding: 70px 20px 60px; }
+    .hero-stats { grid-template-columns: 1fr; gap: 20px; }
+    section { padding: 64px 20px; }
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    .lead-wrap { padding: 30px 22px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER / NAV ==================== -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <span class="mark">N</span>
+      <span>
+        Northstar Growth Consulting
+        <span class="logo-sub">Growth Systems</span>
+      </span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#results" class="nav-link">Results</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#contact" class="btn btn-primary btn-small">Book a Strategy Call</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="#contact" class="btn btn-primary btn-small nav-cta-desktop" id="book-strategy-call-nav">Book a Strategy Call</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <span class="eyebrow">Growth Strategy · Marketing Operations · Revenue Systems</span>
+    <h1>Build a Growth System That Actually Scales.</h1>
+    <p class="lead">
+      Northstar Growth Consulting helps founder-led companies replace scattered
+      campaigns and manual reporting with a connected growth system —
+      strategy, operations, and measurement working as one engine.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary" id="book-strategy-call">Book a Strategy Call</a>
+      <a href="#services" class="btn btn-outline" id="explore-services">Explore Services</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">120+</div>
+        <div class="stat-label">Growth Systems Built</div>
+      </div>
+      <div>
+        <div class="stat-num">3.4x</div>
+        <div class="stat-label">Avg. Pipeline Lift*</div>
+      </div>
+      <div>
+        <div class="stat-num">45 Days</div>
+        <div class="stat-label">To First System Milestone</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section id="services">
+  <div class="section-head">
+    <span class="eyebrow">What We Do</span>
+    <h2>Three Pillars of a Scalable Growth System</h2>
+    <p>Each engagement is built around one of three pillars — or all three, integrated as a single operating system for growth.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">◆</div>
+      <h3>Growth Strategy</h3>
+      <p>A clear, prioritized roadmap that connects your business goals to the channels, offers, and metrics that actually move revenue.</p>
+      <ul>
+        <li>Market &amp; channel diagnostic</li>
+        <li>Growth roadmap &amp; goal architecture</li>
+        <li>Quarterly planning cadence</li>
+      </ul>
+      <button class="btn btn-dark-outline btn-block service-learn-more" data-service="growth-strategy">Learn More</button>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">▣</div>
+      <h3>Marketing Operations</h3>
+      <p>The systems, workflows, and tooling that let your team execute campaigns without the manual busywork and reporting gaps.</p>
+      <ul>
+        <li>Tech stack &amp; tagging architecture</li>
+        <li>Campaign workflow design</li>
+        <li>Reporting &amp; QA processes</li>
+      </ul>
+      <button class="btn btn-dark-outline btn-block service-learn-more" data-service="marketing-operations">Learn More</button>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">◈</div>
+      <h3>Revenue Systems</h3>
+      <p>End-to-end infrastructure connecting marketing, sales, and lifecycle data so revenue reporting is trusted and automated.</p>
+      <ul>
+        <li>Lead-to-revenue instrumentation</li>
+        <li>CRM &amp; automation integration</li>
+        <li>Attribution &amp; forecasting models</li>
+      </ul>
+      <button class="btn btn-dark-outline btn-block service-learn-more" data-service="revenue-systems">Learn More</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== RESULTS / SOCIAL PROOF ==================== -->
+<section id="results" class="results-section">
+  <div class="section-head">
+    <span class="eyebrow">Results</span>
+    <h2>Sample Outcomes From Recent Engagements</h2>
+    <p>Illustrative figures shown for demonstration purposes.</p>
+  </div>
+
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="num">3.4x</div>
+      <div class="label">Avg. Pipeline Growth</div>
+    </div>
+    <div class="result-card">
+      <div class="num">38%</div>
+      <div class="label">Lower Cost Per Lead</div>
+    </div>
+    <div class="result-card">
+      <div class="num">96%</div>
+      <div class="label">Reporting Accuracy</div>
+    </div>
+    <div class="result-card">
+      <div class="num">14</div>
+      <div class="label">Industries Served</div>
+    </div>
+  </div>
+
+  <div class="testimonial">
+    <p class="quote">"Northstar rebuilt our entire measurement stack in six weeks. For the first time, our marketing and revenue numbers actually match."</p>
+    <p class="attribution">— Fictional VP of Marketing, Sample Client Co.</p>
+    <p class="disclaimer">Sample content for demonstration purposes only</p>
+  </div>
+</section>
+
+<!-- ==================== LEAD GENERATION ==================== -->
+<section class="lead-section" id="contact">
+  <div class="lead-wrap">
+
+    <div class="section-head">
+      <span class="eyebrow">Get Started</span>
+      <h2>Let's Talk About Your Growth System</h2>
+      <p>Tell us a bit about your business and a strategist will follow up within one business day.</p>
+    </div>
+
+    <form id="consultation-form" novalidate>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" name="first_name" autocomplete="given-name" required>
+        </div>
+        <div class="form-field">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" name="last_name" autocomplete="family-name" required>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" autocomplete="organization" required>
+        </div>
+
+        <div class="form-field full">
+          <label for="budget">Monthly Marketing Budget</label>
+          <select id="budget" name="budget" required>
+            <option value="" disabled selected>Select a range</option>
+            <option value="under-5k">Under $5,000</option>
+            <option value="5k-15k">$5,000 – $15,000</option>
+            <option value="15k-50k">$15,000 – $50,000</option>
+            <option value="50k-150k">$50,000 – $150,000</option>
+            <option value="150k-plus">$150,000+</option>
+          </select>
+        </div>
+
+        <div class="form-field full">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="What are you hoping to solve?"></textarea>
+        </div>
+      </div>
+
+      <div class="form-submit-row">
+        <button type="submit" class="btn btn-primary btn-block" id="consultation-submit">Request Consultation</button>
+      </div>
+
+      <p class="form-note">This is a fictional training site. No information submitted here is sent anywhere.</p>
+    </form>
+
+    <div class="thank-you" id="thank-you-state">
+      <div class="check">✓</div>
+      <h3>Thanks — your request is in.</h3>
+      <p>A Northstar strategist will follow up within one business day to schedule your consultation. (Fictional confirmation — no data was actually sent.)</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="logo">
+        <span class="mark">N</span>
+        <span>
+          Northstar Growth Consulting
+          <span class="logo-sub">Growth Systems</span>
+        </span>
+      </a>
+      <p>Growth strategy, marketing operations, and revenue systems for founder-led companies ready to scale. This is a fictional company created for a marketing measurement training sandbox.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#results" class="nav-link">Results</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+18885550142" id="phone-link">(888) 555-0142</a>
+      <a href="mailto:hello@northstargrowthconsulting.example" id="email-link">hello@northstargrowthconsulting.example</a>
+      <p>Dallas, TX (Fictional HQ)</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Northstar Growth Consulting. Fictional company — training sandbox only.</span>
+    <span>Built for GTM / GA4 measurement training</span>
+  </div>
+</footer>
+
+<!--
+  GTM NOSCRIPT SNIPPET PLACEHOLDER
+  ------------------------------------------------------------------
+  The Google Tag Manager <noscript><iframe> fallback snippet will be
+  installed here, immediately after the opening <body> tag. It has
+  been placed as a comment near the top of <body> in most GTM guides;
+  in this file it is marked at both the top of <body> (see below)
+  and here at the bottom for visibility during setup.
+
+  Reminder: the correct final location is directly after <body>,
+  not here at the end of the page. This bottom comment is only a
+  placeholder note for this training build.
+  ------------------------------------------------------------------
+-->
+
+<script>
+  (function () {
+    'use strict';
+
+    // ---------- Mobile nav toggle ----------
+    var navToggle = document.getElementById('nav-toggle');
+    if (navToggle) {
+      navToggle.addEventListener('click', function () {
+        document.body.classList.toggle('nav-open');
+      });
+    }
+
+    // Close mobile nav after tapping a link
+    document.querySelectorAll('.nav-link, .nav-links .btn').forEach(function (el) {
+      el.addEventListener('click', function () {
+        document.body.classList.remove('nav-open');
+      });
+    });
+
+    // ---------- Service "Learn More" buttons ----------
+    // Left generic on purpose — GTM will target these via the
+    // shared class "service-learn-more" and the data-service
+    // attribute during the training exercises.
+    document.querySelectorAll('.service-learn-more').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var service = btn.getAttribute('data-service') || 'unknown';
+        console.log('[Northstar Sandbox] Learn More clicked:', service);
+      });
+    });
+
+    // ---------- Lead form submission ----------
+    var form = document.getElementById('consultation-form');
+    var thankYou = document.getElementById('thank-you-state');
+
+    if (form) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // In a real build this is where a fetch()/XHR to a CRM or
+        // form endpoint would happen. This sandbox intentionally
+        // sends nothing anywhere.
+
+        form.style.display = 'none';
+        if (thankYou) {
+          thankYou.style.display = 'block';
+        }
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'generate_lead',
+          form_name: 'consultation_form'
+        });
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
